@@ -20,13 +20,9 @@ namespace checkupdates
             watcher.Created += watcher_Created;
             watcher.Renamed += watcher_Renamed;
 
-            Console.Read();
-            
-
-
-
+            while (true) ;
         }
-
+            
         private static void watcher_Renamed(object sender, RenamedEventArgs e)
         {
             Console.WriteLine("File : {0} renamed to {1} at time : {2}", e.OldName, e.Name, DateTime.Now.ToLocalTime());
