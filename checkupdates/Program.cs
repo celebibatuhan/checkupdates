@@ -16,13 +16,20 @@ namespace checkupdates
             watcher.EnableRaisingEvents = true;
             watcher.IncludeSubdirectories = true;
 
+            watcher.Deleted += watcher_Deleted;
             watcher.Changed += watcher_Changed;
             watcher.Created += watcher_Created;
             watcher.Renamed += watcher_Renamed;
+            
 
             while (true) ;
         }
-            
+
+        private static void watcher_Deleted(object sender, FileSystemEventArgs e)
+        {
+            Console.WriteLine("File : {0} deleted at time : {2}", e.Name, DateTime.Now.ToLocalTime());
+        }
+
         private static void watcher_Renamed(object sender, RenamedEventArgs e)
         {
             Console.WriteLine("File : {0} renamed to {1} at time : {2}", e.OldName, e.Name, DateTime.Now.ToLocalTime());
