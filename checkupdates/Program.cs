@@ -5,7 +5,7 @@ namespace checkupdates
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             FileSystemWatcher watcher = new FileSystemWatcher(@"C:\Users\batuhan.celebi\Informations");
 
@@ -17,7 +17,7 @@ namespace checkupdates
             watcher.Created += Watcher_Created;
             watcher.Renamed += Watcher_Renamed;
             
-            while (true) ;
+            while (true);
         }
         private static void Watcher_Deleted(object sender, FileSystemEventArgs e)
         {
