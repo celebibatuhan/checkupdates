@@ -1,7 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace checkupdates
 {
@@ -14,26 +12,26 @@ namespace checkupdates
             watcher.EnableRaisingEvents = true;
             watcher.IncludeSubdirectories = true;
 
-            watcher.Deleted += watcher_Deleted;
-            watcher.Changed += watcher_Changed;
-            watcher.Created += watcher_Created;
-            watcher.Renamed += watcher_Renamed;
+            watcher.Deleted += Watcher_Deleted;
+            watcher.Changed += Watcher_Changed;
+            watcher.Created += Watcher_Created;
+            watcher.Renamed += Watcher_Renamed;
             
             while (true) ;
         }
-        private static void watcher_Deleted(object sender, FileSystemEventArgs e)
+        private static void Watcher_Deleted(object sender, FileSystemEventArgs e)
         {
             Console.WriteLine("File : {0} deleted at time : {1}", e.Name, DateTime.Now.ToLocalTime());
         }
-        private static void watcher_Renamed(object sender, RenamedEventArgs e)
+        private static void Watcher_Renamed(object sender, RenamedEventArgs e)
         {
             Console.WriteLine("File : {0} renamed to {1} at time : {2}", e.OldName, e.Name, DateTime.Now.ToLocalTime());
         }
-        private static void watcher_Created(object sender, FileSystemEventArgs e)
+        private static void Watcher_Created(object sender, FileSystemEventArgs e)
         {
             Console.WriteLine("File : {0}  created at time : {1}", e.Name, DateTime.Now.ToLocalTime());
         }
-        private static void watcher_Changed(object sender, FileSystemEventArgs e)
+        private static void Watcher_Changed(object sender, FileSystemEventArgs e)
         {
             Console.WriteLine("File : {0} changed at time : {1}", e.Name, DateTime.Now.ToLocalTime());
         }
