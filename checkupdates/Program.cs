@@ -23,7 +23,7 @@ namespace checkupdates
         }
         private static void watcher_Deleted(object sender, FileSystemEventArgs e)
         {
-            Console.WriteLine("File : {0} deleted at time : {2}", e.Name, DateTime.Now.ToLocalTime());
+            Console.WriteLine("File : {0} deleted at time : {1}", e.Name, DateTime.Now.ToLocalTime());
         }
         private static void watcher_Renamed(object sender, RenamedEventArgs e)
         {
